@@ -1,0 +1,30 @@
+<?php include CURR_VIEW_PATH . 'header.html'?>
+<h1>Products</h1>
+<?php if($products): ?>
+  <ul>
+  <? foreach($products as $product) :?>
+    <li>
+      <div><img src='<?=$product['image']?>' /></div>
+      <div>
+        <h2><?=$product['name']?></h2>
+        <span>Color: <?=$product['color']?></span>
+      </div>
+      <div>
+        Price: <?=$product['net']?>
+      </div>
+      <div>
+        <form method="POST" action="">
+          <div>
+            <input type="hidden" name="id" value="<?=$product['id']?>" />
+            <input type="text" name="quantity" value="1" size="2" />
+            <input type="submit" value="Add to basket" />
+          </div>
+        </form>
+      </div>
+    </li>
+  <? endforeach ;?>
+  </ul>
+<?php else: ?>
+  No products at the moment.
+<?php endif; ?>
+<?php include CURR_VIEW_PATH . 'footer.html'?>

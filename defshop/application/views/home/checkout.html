@@ -1,0 +1,41 @@
+<?php include CURR_VIEW_PATH . 'header.html'?>
+<h1>Checkout</h1>
+<form action="" method="POST">
+  <p>
+    <label for='method' >Choose your paiement method*</label>
+    <select name="method" id="method">
+      <option value="method1">Method 1</option>
+      <option value="method2">Method 2</option>
+    </select>
+  </p>
+  <p>
+    <input type='submit' name='submit' value='Submit' />
+  </p>
+</form>
+<h2>Your selected products</h2>
+<?php if(isset($products)) : ?>
+  <?php if(isset($order)) :?>
+    Thank you for your order!
+  <?php else : ?>
+    <ul>
+    <? foreach($products as $product) :?>
+      <li>
+        <div><img src='<?=$product['image']?>' /></div>
+        <div>
+          <h2><?=$product['name']?></h2>
+          <span>Color: <?=$product['color']?></span>
+        </div>
+        <div>
+          Quantity: <?=$product['quantity']?>
+        </div>
+        <div>
+          Price: <?=$product['price']?>
+        </div>
+      </li>
+    <? endforeach ;?>
+    </ul>
+  <?php endif; ?>
+<?php else : ?>
+  Your basket is empty!
+<?php endif; ?>
+<?php include CURR_VIEW_PATH . 'footer.html'?>

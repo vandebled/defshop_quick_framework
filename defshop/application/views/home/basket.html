@@ -1,0 +1,30 @@
+<?php include CURR_VIEW_PATH . 'header.html'?>
+<h1>Product Basket</h1>
+<?php if(isset($products)) : ?>
+  <?php if(isset($_SESSION['logged_user'])) : ?>
+    <p><a href="/?c=checkout">Go to checkout!</a></p>
+  <?php else : ?>
+    <p><a href="/?c=login">Log In to checkout</a></p>
+    <p><a href="/?c=register">Register</a></p>
+  <?php endif; ?>
+  <ul>
+  <? foreach($products as $product) :?>
+    <li>
+      <div><img src='<?=$product['image']?>' /></div>
+      <div>
+        <h2><?=$product['name']?></h2>
+        <span>Color: <?=$product['color']?></span>
+      </div>
+      <div>
+        Quantity: <?=$product['quantity']?>
+      </div>
+      <div>
+        Price: <?=$product['price']?>
+      </div>
+    </li>
+  <? endforeach ;?>
+  </ul>
+<?php else : ?>
+  Your basket is empty!
+<?php endif; ?>
+<?php include CURR_VIEW_PATH . 'footer.html'?>

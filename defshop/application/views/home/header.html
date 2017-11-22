@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Welcome to DefShop</title>
+</head>
+<body>
+	<header class="header">
+		<nav class="nav" role="navigation">
+			<ul>
+				<li>
+					<a href="/">Home</a>
+				</li>
+				<li>
+					<a href="/?c=basket">Product Basket</a>
+				</li>
+				<?php if(isset($_SESSION['logged_user'])) :?>
+				<li>
+						Welcome <?=$_SESSION['logged_user']?>!
+						<a href="/?c=logout">Log Out</a>
+				</li>
+				<?php else : ?>
+					<li>
+						<a href="/?c=register">Register</a>
+					</li>
+					<li>
+						<a href="/?c=login">Log In</a>
+					</li>
+				<?php endif; ?>
+			</ul>
+		</nav>
+	</header>
