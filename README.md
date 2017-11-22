@@ -1,2 +1,2 @@
-# defshop_quick_framework
-Quick framework
+# Quick framework
+You can log in with wahiba / 123
